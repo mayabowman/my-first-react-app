@@ -1,28 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import moment from 'moment';
+import { math } from 'mathjs';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-          Let's change some stuff!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  render() {
+    const f1 = math.fraction(4, 7); // the fraction 4/7
+    const f2 = math.fraction(3, 8); // the fraction 3/8
+    const f3 = math.add(f1, f2); // the fraction 53/56
+    const formatted_fraction = math.format(f3, { fraction: 'ratio' });
+ 
+    return (
+      <div>
+        <h2>4/7 + 3/8 = </h2>
+        <p>{formatted_fraction}</p>
+      </div>
+    );
+  }
 }
 
 export default App;
